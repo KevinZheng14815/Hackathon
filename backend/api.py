@@ -41,7 +41,7 @@ app = Flask(__name__)
 cors = CORS(app)
 
 app.config['CORS_HEADERS' ] = 'Content-Type'
-@app.route("/oil_change")
+@app.route("/oil_prediction")
 @cross_origin()
 def calculate_oil_percentage():
     print(request.args.get ('months'))
