@@ -29,8 +29,8 @@ table = pd.pivot_table(airplane_data, values = 'Total', index = ['data_dte'],agg
 merged_data = table.merge(data_brent_futures, left_on = 'data_dte', right_on = 'Date')
 merged_data = merged_data.merge(pandas_frame_GSPC, left_on = 'Date',  right_on = 'Date')
 merged_data = merged_data.merge(saudi_prod, left_on = 'Date',  right_on = 'date')
-merged_data =  merged_data.merge(us_prod, left_on = 'date',  right_on = 'Date')
-merged_data =  merged_data.drop(columns = ['High', 'Low','Close','Volume','Dividends','Stock Splits'])
+merged_data = merged_data.merge(us_prod, left_on = 'date',  right_on = 'Date')
+merged_data = merged_data.drop(columns = ['High', 'Low','Close','Volume','Dividends','Stock Splits'])
 
 df = merged_data.drop('date',1)
 df['idx'] = np.arange(0,56)
@@ -46,43 +46,43 @@ app = Flask(__name__)
 cors = CORS(app)
 
 app.config['CORS_HEADERS' ] = 'Content-Type'
-months = 200
-airline_change = 0
-stock_change = 0
-production_change = 0
-us_prod_change = 0
-airline_change = 0
-months_in_future = months
+# months = 200
+# airline_change = 0
+# stock_change = 0
+# saudi_prod_change = 0
+# us_prod_change = 0
+# airline_change = 0
+# months_in_future = months
 
-scaled_airline = X.iloc[-1]['Total'] * (1 + airline_change/100)
-scaled_stock = X.iloc[-1]['Open'] * (1 + stock_change/100)
-scaled_saudi_prod = X.iloc[-1]['saudi_prod'] * (1 + production_change/100)
-scaled_us_prod = X.iloc[-1]['us_prod'] * (1 + us_prod_change/100)
-scaled_months = X.iloc[-1]['idx'] + months_in_future
-print(scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months)
-prediction = regr.predict ([[scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months]])
+# scaled_airline = X.iloc[-1]['Total'] * (1 + airline_change/100)
+# scaled_stock = X.iloc[-1]['Open'] * (1 + stock_change/100)
+# scaled_saudi_prod = X.iloc[-1]['saudi_prod'] * (1 + saudi_prod_change/100)
+# scaled_us_prod = X.iloc[-1]['us_prod'] * (1 + us_prod_change/100)
+# scaled_months = X.iloc[-1]['idx'] + months_in_future
+# print(scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months)
+# prediction = regr.predict ([[scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months]])
 
-print(str(prediction[0]))
+# print(str(prediction[0]))
 
 @app.route("/oil_change")
 @cross_origin()
 def calculate_oil_percentage():
-    print(request.args.get ('months'))
+    print(request.args.get('months'))
     #print(request.args.get('airline))
-    print (request.args.get ('stock_change'))
-    print (request.args.get ('production_change'))
+    print (request.args.get('stock_change'))
+    print (request.args.get('saudi_prod_change'))
     print(request.args.get('us_prod_change'))
     print (request.args.get('airline_change'))
     months_in_future = int(request.args.get('months'))
     airline_change = int(request.args.get('airline_change'))
     stock_change = int(request.args.get('stock_change'))
-    us_prod_change = int(request.args.get ('us_prod_change'))
-    production_change = int(request.args.get ('production_hange'))
+    us_prod_change = int(request.args.get('us_prod_change'))
+    saudi_prod_change = int(request.args.get('saudi_prod_change'))
     scaled_airline = X.iloc[-1]['Total'] * (1 + airline_change/100)
     scaled_stock = X.iloc[-1]['Open'] * (1 + stock_change/100)
-    scaled_saudi_prod = X.iloc[-1]['saudi_prod'] * (1 + production_change/100)
+    scaled_saudi_prod = X.iloc[-1]['saudi_prod'] * (1 + saudi_prod_change/100)
     scaled_us_prod = X.iloc[-1]['us_prod'] * (1 + us_prod_change/100)
-    scaled_months = X.iloc[-1]['idx'] + months in future
+    scaled_months = X.iloc[-1]['idx'] + months_in_future
     print(scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months)
-    prediction = regr.predict ([[scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months]])
+    prediction = regr.predict([[scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months]])
     return str(prediction[0])
