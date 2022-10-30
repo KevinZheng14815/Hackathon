@@ -31,7 +31,7 @@ const Prediction = () => {
     
     const [res, setRes] = useState(null);
 
-    const [values, setValues] = useState({value_3_b:2, value_2_b:2, value_1_b:2, value:2, value_1:2, value_2:2, value_3:2});
+    const [values, setValues] = useState({value_3_b:0, value_2_b:0, value_1_b:0, value:0, value_1:0, value_2:0, value_3:0});
 
     function getData(e) {
         e.preventDefault();
