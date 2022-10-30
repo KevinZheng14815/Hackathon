@@ -1,8 +1,8 @@
 # Hackathon
 CODERED project for Conoco Phillips Track
 
-Frontend:
+##Frontend:
 - $ npm install
 - $ npm start
-Backend
+##Backend
 - $ flask run
