@@ -21,7 +21,7 @@ const Prediction = () => {
 
 
     // FIXME: 0 is default value, set it to today's date
-    const [newsResponse, setnewsResponse] =  useState(null);
+    const [newsResponse, setnewsResponse] =  useState(0);
     useEffect(() => {
         
         
