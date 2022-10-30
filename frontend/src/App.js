@@ -1,10 +1,27 @@
 import './App.css';
+import Home from './pages/Home'
+import Prediction from './pages/Prediction';
+import Navbar from './components/NavBar';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Yo</h1>
-    </div>
+    
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="prediction" element={<Prediction />} />
+    </Routes>
+    </BrowserRouter>
+    
   );
 }
 
