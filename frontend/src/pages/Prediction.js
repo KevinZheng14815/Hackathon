@@ -1,10 +1,11 @@
 import "./Prediction.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 //import { require } from 'react'
 import LineChart from "../components/LineChart";
 import NewsCard from "../components/NewsCard";
 import axios from "axios";
+import React from "react";
 
 // First use state for date recieved by backend
 // Next have use effect that calls a request function with the use state and date recieved as parameters
@@ -21,11 +22,14 @@ import axios from "axios";
 //     </div>
 // )
 
+//Max, we dont need to worry about displaying the value of the result, we just pass the value we have 
 const Prediction = () => {
+   
+
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   //console.log(today)
-  // FIXME: 0 is default value, set it to today's date
+  //0 is default value
   const [newsResponse, setnewsResponse] = useState(0);
   useEffect(() => {
     const options = {
@@ -74,7 +78,7 @@ const Prediction = () => {
                 Time in Months
               </label>
               <input
-                type="integer"
+                type="text"
                 class="form-control block
         w-full
         px-3
@@ -91,6 +95,8 @@ const Prediction = () => {
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 id="num-months"
                 placeholder="Number of months from now"
+                name="num-months"
+
               ></input>
             </div>
             <button
@@ -112,13 +118,13 @@ const Prediction = () => {
       active:bg-blue-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out"
+      ease-in-out" 
+    //onChange={addResultToOutput}
             >
               Calculate
             </button>
           </form>
         </div>
-
         {/* <div class="block p-6 rounded-lg bg-blue-200 w-1/4 shadow-sm hover:shadow-2xl align-middle">
           <div class="flex justify-center items-center">
 
@@ -128,7 +134,8 @@ const Prediction = () => {
           </div>
         </div> */}
         <div class="center block p-6 rounded-lg bg-blue-200 w-1/4 shadow-sm hover:shadow-2xl align-middle">
-                <h1 class="result">result</h1>
+                <h1>Percentage</h1>
+                <h1 class="result">{}</h1>
                 
 
         </div>
