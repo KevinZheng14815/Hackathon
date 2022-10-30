@@ -11,14 +11,15 @@ const About = () => {
             <dh-component>
                 <div class="container flex justify-center mx-auto pt-16">
                     <div>
-                        <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold">About Us</h1>
+                        <h1 class="xl:text-4xl text-3xl text-center text-white font-extrabold">About Us</h1>
+                        {/* Credits of font to Karthik (LOOKING FOR INTERNSHIP) and Angel Investors and Bollywood actors */}
                     </div>
                 </div>
                 <div class="w-full px-10 pt-10">
                     <div class="container mx-auto">
                         <div role="list" aria-label="Behind the scenes People " class="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
                             <div role="listitem" class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                                <div class="rounded overflow-hidden shadow-md bg-white">
+                                <div class="rounded overflow-hidden shadow-md bg-blue-200">
                                     <div class="absolute -mt-20 w-full flex justify-center">
                                         <div class="h-32 w-32">
                                             <img src={khan} alt="Display Picture of Haroon Khan" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
@@ -40,7 +41,7 @@ const About = () => {
                                 </div>
                             </div>
                             <div role="listitem" class="xl:w-1/3 lg:mx-3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                                <div class="rounded overflow-hidden shadow-md bg-white">
+                                <div class="rounded overflow-hidden shadow-md bg-blue-200">
                                     <div class="absolute -mt-20 w-full flex justify-center">
                                         <div class="h-32 w-32">
                                             <img src={max} alt="Display Picture of Max Chalitsios" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
@@ -63,7 +64,7 @@ const About = () => {
                                 </div>
                             </div>
                             <div role="listitem" class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                                <div class="rounded overflow-hidden shadow-md bg-white">
+                                <div class="rounded overflow-hidden shadow-md bg-blue-200">
                                     <div class="absolute -mt-20 w-full flex justify-center">
                                         <div class="h-32 w-32">
                                             <img src={farrah} alt="Display Picture of Mohammed Farah" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
@@ -85,7 +86,7 @@ const About = () => {
                                 </div>
                             </div>
                             <div role="listitem" class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5">
-                                <div class="rounded overflow-hidden shadow-md bg-white">
+                                <div class="rounded overflow-hidden shadow-md bg-blue-200">
                                     <div class="absolute -mt-20 w-full flex justify-center">
                                         <div class="h-32 w-32">
                                             <img src={kevin} alt="Display Picture of Kevin Zheng" role="img" class="rounded-full object-cover h-full w-full shadow-md" />
