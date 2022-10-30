@@ -10,6 +10,7 @@ from sklearn.kernel_ridge import KernelRidge
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import pytz
+import g
 
 
 GSPC100 = yf.Ticker("^GSPC")
@@ -74,10 +75,10 @@ def calculate_oil_percentage():
     print(request.args.get('us_prod_change'))
     print (request.args.get('airline_change'))
     months_in_future = int(request.args.get('months'))
-    airline_change = int(request.args.get('airline_change'))
-    stock_change = int(request.args.get('stock_change'))
     us_prod_change = int(request.args.get('us_prod_change'))
     saudi_prod_change = int(request.args.get('saudi_prod_change'))
+    airline_change = int(request.args.get('airline_change'))
+    stock_change = int(request.args.get('stock_change'))
     scaled_airline = X.iloc[-1]['Total'] * (1 + airline_change/100)
     scaled_stock = X.iloc[-1]['Open'] * (1 + stock_change/100)
     scaled_saudi_prod = X.iloc[-1]['saudi_prod'] * (1 + saudi_prod_change/100)
@@ -85,4 +86,8 @@ def calculate_oil_percentage():
     scaled_months = X.iloc[-1]['idx'] + months_in_future
     print(scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months)
     prediction = regr.predict([[scaled_airline, scaled_stock, scaled_saudi_prod, scaled_us_prod, scaled_months]])
-    return str(prediction[0])
+    return str(round(prediction[0], 4))
+
+@app.route('/gptj_query')
+def gptj_main(query_string):
+    

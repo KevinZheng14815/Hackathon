@@ -2,22 +2,28 @@ import React from "react";
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-const labels = ["January", "February", "March", "April", "May", "June"];
+const LineChart = (props) => {
 
-//FIXME
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
+  let month_number = props.month_number;
 
-const LineChart = () => {
+  let values = props.values
+
+  const labels = [Math.round(month_number-3), Math.round(month_number-2), Math.round(month_number-1), Math.round(month_number), Math.round(month_number+1), Math.round(month_number+2), Math.round(month_number+3)];
+
+  //FIXME
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        
+        label: "Oil Price Percentage Change",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: [values.value_3_b, values.value_2_b, values.value_1_b, values.value, values.value_1, values.value_2, values.value_3],
+      },
+    ],
+  };
+
   return (
     <div>
       <Line data={data} />
