@@ -1,6 +1,8 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
 
+import logo from '../static/img/rig.png';
+
 import Home from '../pages/Home';
 import Prediction from '../pages/Prediction';
 
@@ -17,14 +19,14 @@ const Navbar= () =>{
 
 
     <div class="min-h-full">
-  <nav class="bg-gray-800">
+  <nav class="bg-slate-800" id='navbar'>
     <div class="mx-auto w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <a href='#'>
             <Link to="/">
-            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="h-8 w-8" src={logo} alt="Your Company">
             </img>
             </Link>
 

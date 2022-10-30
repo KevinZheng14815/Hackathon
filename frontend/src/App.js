@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './pages/Home'
 import Prediction from './pages/Prediction';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import {
   BrowserRouter,
   Routes,
