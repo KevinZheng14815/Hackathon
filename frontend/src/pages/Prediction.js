@@ -113,9 +113,9 @@ const Prediction = () => {
         </div>
 
         {/* Visualization of data */}
-        <div className="data-display">
+        <div class="p-8">
             <div className='line-chart'>
-                <div class="">
+                <div class="block p-6 rounded-lg shadow-lg bg-white w-3/4">
                     <LineChart />
                     
                 </div>
