@@ -1,0 +1,37 @@
+.flex-container {
+    display: flex;
+    background-color: Gray;
+    justify-content: center;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+    .cn {
+      display: table-cell;
+      width: 500px;
+      height: 500px;
+      vertical-align: middle;
+      text-align: center;
+    }
+    
+    .inner {
+      display: inline-block;
+      width: 200px; height: 200px;
+    }
+
+.center {
+  position: relative;
+  /* top: 50%;
+  transform: translate(0, -50%); */
+  /* border: 5px solid #FFFF00; */
+  text-align: center;
+  padding: 40px 0;
+  }
+
+.result {
+  font-size: 50px;
+}

@@ -21,6 +21,11 @@ const LineChart = () => {
   return (
     <div>
       <Line data={data} />
+
+    {/* <body>
+     <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+     <script src="script.js"></script>
+    </body> */}
     </div>
   );
 };
