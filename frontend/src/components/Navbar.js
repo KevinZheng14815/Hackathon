@@ -1,10 +1,11 @@
 import React from 'react';
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import logo from '../static/img/rig.png';
 
 import Home from '../pages/Home';
 import Prediction from '../pages/Prediction';
+import About from '../pages/About';
 
 import {
   BrowserRouter,
@@ -16,8 +17,6 @@ const Navbar= () =>{
   return (
   <div>
     
-
-
     <div class="min-h-full">
   <nav class="bg-slate-800" id='navbar'>
     <div class="mx-auto w-7xl px-4 sm:px-6 lg:px-8">
@@ -40,7 +39,12 @@ const Navbar= () =>{
                   Prediction
                   </Link>
 
+                <Link to="/About" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                About Us
+              </Link>
+
               <a href="https://github.com/KevinZheng14815/Hackathon" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Github</a>
+
 
             
             </div>
@@ -90,6 +94,7 @@ const Navbar= () =>{
   <Routes>
       <Route path="/" element={<Home />} />
       <Route path="prediction" element={<Prediction />} />
+      <Route path="about" element={<About />} />
     </Routes>
 
   
