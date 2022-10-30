@@ -10,16 +10,11 @@ import {
 
 
 
-
 function App() {
   return (
     
     <BrowserRouter>
     <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="prediction" element={<Prediction />} />
-    </Routes>
     </BrowserRouter>
     
   );

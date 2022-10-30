@@ -19,11 +19,12 @@ import axios from 'axios';
 
 const Prediction = () => {
 
-
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    //console.log(today)
     // FIXME: 0 is default value, set it to today's date
-    const [newsResponse, setnewsResponse] =  useState(null);
+    const [newsResponse, setnewsResponse] =  useState(0);
     useEffect(() => {
-        
         
         const options = {
             method: 'GET',
@@ -37,7 +38,7 @@ const Prediction = () => {
                 toPublishedDate: 'null'
             },
             headers: {
-                'X-RapidAPI-Key': 'df7b7367f1mshbb472ba7122aec4p19dd22jsna85b26a629ca',
+                'X-RapidAPI-Key': '9342f64145mshd8114bf17cb9cefp1f654bjsna4917672b392',
                 'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
             }
         };
@@ -50,27 +51,62 @@ const Prediction = () => {
         }).catch(function (error) {
             console.error(error);
         });
+        
 
     },[]);
 
 
   return (
     <div className="Prediction">
-      <h1>PREDICTION</h1>
+      
 
-        <div className="percentage-output">
+        
+        <div class="flex p-8 space-x-10">
+        
 
-            <div className="input-form">
+            <div class="block p-6 rounded-lg shadow-lg bg-white w-1/2">
                 <form>
-                    <label>
-                        Time in Months:
-                        <input type="text" name="time" />
-                    </label>
-                </form>
+
+    <div class="form-group mb-6">
+      <label for="exampleInputPassword1" class="form-label inline-block mb-2 text-gray-700">Time in Months</label>
+      <input type="integer" class="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="num-months"
+        placeholder="Number of months from now"></input>
+    </div>
+    <button type="submit" class="
+      px-6
+      py-2.5
+      bg-blue-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out">Calculate</button>
+                </form>  
             </div>
 
 
-            <div className="result">
+            <div class="block p-6 rounded-lg shadow-lg bg-white w-1/2">
                 <p>temp result</p>
             </div>
 
@@ -79,7 +115,11 @@ const Prediction = () => {
         {/* Visualization of data */}
         <div className="data-display">
             <div className='line-chart'>
-                <LineChart />
+                <div class="">
+                    <LineChart />
+                    
+                </div>
+                
             </div>
 
             <div className="news-article">
@@ -107,3 +147,5 @@ const Prediction = () => {
 }
 
 export default Prediction;
+
+
