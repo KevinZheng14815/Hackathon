@@ -90,6 +90,7 @@ const Prediction = () => {
   const today = new Date(timeElapsed);
   //console.log(today)
   //0 is default value
+  
   const [newsResponse, setnewsResponse] = useState(0);
   useEffect(() => {
     const options = {

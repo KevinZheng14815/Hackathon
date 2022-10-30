@@ -13,11 +13,13 @@ import {
 
 function App() {
   return (
+
     
     <BrowserRouter>
-    <Navbar />
-    </BrowserRouter>
+      <Navbar />
     
+    </BrowserRouter>
+
   );
 }
 
